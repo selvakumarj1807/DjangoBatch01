@@ -25,3 +25,26 @@ def addnew(request):
         return redirect('/')
         
     return render(request, 'addnew.html', {'form': form})
+
+
+def destroy(request, id):
+    employee = Employee.objects.get(id=id)
+    employee.delete()
+    
+    return redirect('/')
+
+
+def edit(request, id):  
+    employee = Employee.objects.get(id=id)  
+    return render(request,'edit.html', {'employee':employee})
+
+def update(request, id):
+    employee = Employee.objects.get(id=id)  
+    
+    form = EmployeeForm(request.POST, instance = employee)  
+    
+    if form.is_valid():  
+        form.save()  
+        return redirect("/")  
+    
+    return render(request, 'edit.html', {'employee': employee})

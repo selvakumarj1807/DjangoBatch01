@@ -24,6 +24,7 @@
                 <th>Employee Name</th>
                 <th>Employee Email</th>
                 <th>Employee Contact</th>
+                <th>Mobile Valid or In Valid</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </thead>
@@ -35,6 +36,17 @@
                     <td>{{ employee.name }}</td>
                     <td>{{ employee.email }}</td>
                     <td>{{ employee.contact }}</td>
+                    <td>
+                        {% if employee.contact|length == 10 %}
+                        
+                        {{ employee.contact|length }} - Vaild
+
+                        {% else %}
+
+                        {{ employee.contact|length }} - In Valid
+
+                        {% endif %}
+                    </td>
                     <td><a href="/edit/{{ employee.id }}" class="btn btn-primary">Edit</a></td>
                     <td><a href="/delete/{{ employee.id }}" class="btn btn-danger">Delete</a></td>
                 </tr>
