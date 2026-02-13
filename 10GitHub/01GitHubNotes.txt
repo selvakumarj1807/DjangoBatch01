@@ -1,0 +1,44 @@
+Create Git Account and Download and Install git in your pc and follow below Steps
+
+----------------------------------------------
+Upload files to your GitHub repo using VS Code
+----------------------------------------------
+
+git config --global user.name "Your Name"
+
+git config --global user.email "you@example.com"
+
+
+git init
+
+git add .
+
+git commit -m "Initial commit"
+
+git remote add origin https://github.com/selvakumarj1807/sampleGitTest.git
+
+git branch -M main
+
+git push -u origin main 
+
+(If have a error follow below step)
+
+git fetch origin
+
+git rebase origin/main
+
+git push -u origin main
+
+
+
+-------------------
+Make changes & push
+-------------------
+
+git add .
+
+git commit -m "Add feature X"
+
+git pull --rebase origin main
+
+git push origin main
