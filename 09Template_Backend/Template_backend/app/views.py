@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from app.models import Doctor
+
 # Create your views here.
 
 def index (request):
@@ -24,7 +26,9 @@ def departments (request):
     return render (request, 'departments.html')
 
 def doctor (request):
-    return render (request, 'doctors.html')
+    doctors = Doctor.objects.all()
+    context = {'doctors': doctors}
+    return render (request, 'doctors.html', context)
 
 def faq (request):
     return render (request, 'faq.html')
