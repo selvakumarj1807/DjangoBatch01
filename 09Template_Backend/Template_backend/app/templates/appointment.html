@@ -76,46 +76,29 @@
               </div>
 
               <div class="appointment-form" data-aos="fade-up" data-aos-delay="400">
-                <form action="forms/book-appointment.php" method="post" class="php-email-form">
+                <form action="/appointment" method="post" class="php-email-form">
+                  {% csrf_token %}
                   <div class="row gy-4">
                     <div class="col-md-6">
-                      <input type="text" name="name" class="form-control" placeholder="Full Name" required="">
+                      {{ form.name}}
                     </div>
                     <div class="col-md-6">
-                      <input type="email" name="email" class="form-control" placeholder="Email Address" required="">
+                      {{ form.email}}
                     </div>
                     <div class="col-md-6">
-                      <input type="tel" name="phone" class="form-control" placeholder="Phone Number" required="">
+                      {{ form.contact}}
                     </div>
                     <div class="col-md-6">
-                      <select name="department" class="form-select" required="">
-                        <option value="">Select Department</option>
-                        <option value="general">General Consultation</option>
-                        <option value="cardiology">Cardiology</option>
-                        <option value="neurology">Neurology</option>
-                        <option value="orthopedics">Orthopedics</option>
-                        <option value="pediatrics">Pediatrics</option>
-                        <option value="dermatology">Dermatology</option>
-                        <option value="oncology">Oncology</option>
-                      </select>
+                      {{ form.select_department }}
                     </div>
                     <div class="col-md-6">
                       <input type="date" name="date" class="form-control" required="">
                     </div>
                     <div class="col-md-6">
-                      <select name="doctor" class="form-select" required="">
-                        <option value="">Select Doctor</option>
-                        <option value="dr-sarah-johnson">Dr. Sarah Johnson</option>
-                        <option value="dr-michael-chen">Dr. Michael Chen</option>
-                        <option value="dr-emily-davis">Dr. Emily Davis</option>
-                        <option value="dr-robert-smith">Dr. Robert Smith</option>
-                        <option value="dr-lisa-brown">Dr. Lisa Brown</option>
-                        <option value="dr-david-wilson">Dr. David Wilson</option>
-                        <option value="dr-maria-rodriguez">Dr. Maria Rodriguez</option>
-                      </select>
+                        {{form.select_doctor }}
                     </div>
                     <div class="col-12">
-                      <textarea name="message" class="form-control" rows="4" placeholder="Additional notes or symptoms (optional)"></textarea>
+                      {{ form.description}}
                     </div>
                     <div class="col-12">
                       <div class="loading">Loading</div>

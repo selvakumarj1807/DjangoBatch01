@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
+from app.forms import AppointmentForm
 from app.models import Doctor
 
 # Create your views here.
@@ -13,8 +14,17 @@ def error (request):
 def about (request):
     return render (request, 'about.html')
 
-def appointment (request):
-    return render (request, 'appointment.html')
+
+def appointment(request):
+    form = AppointmentForm() 
+
+    if request.method=='POST':
+        form = AppointmentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')  # Redirect to the same view after successful form submission
+    
+    return render (request, 'appointment.html', {'form': form})
 
 def contact (request):
     return render (request, 'contact.html')
@@ -26,7 +36,7 @@ def departments (request):
     return render (request, 'departments.html')
 
 def doctor (request):
-    doctors = Doctor.objects.all()
+    doctors = Doctor.objects.filter(status=False)
     context = {'doctors': doctors}
     return render (request, 'doctors.html', context)
 

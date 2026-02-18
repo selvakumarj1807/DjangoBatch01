@@ -23,3 +23,23 @@ class Doctor(models.Model):
 
     def __str__(self):
         return self.Doctor_name
+    
+
+
+class Appointment(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    contact = models.CharField(max_length=15)
+    date = models.CharField(max_length=100)
+    select_doctor = models.CharField(max_length=100)
+    select_department = models.CharField(max_length=100)
+    description=models.TextField(max_length=500,null=False,blank=False)
+    status=models.BooleanField(default=False,help_text="0-show,1-Hidden")
+    created_at=models.DateTimeField(auto_now_add=True)   
+
+
+    class Meta:
+        db_table = "appointment"
+        
+    def __str__(self) :
+        return self.name
