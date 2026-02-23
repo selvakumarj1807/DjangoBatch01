@@ -1,0 +1,133 @@
+{
+  "info": {
+    "_postman_id": "33b35b04-e5cf-4299-adbf-60197228c5e5",
+    "name": "FunctionBasedAPI",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "34703078"
+  },
+  "item": [
+    {
+      "name": "Enquiry",
+      "item": [
+        {
+          "name": "createData",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Lara\",\r\n    \"dob\": \"18.01.1990\",\r\n    \"mobile\": \"9510912258\",\r\n    \"email\": \"lara@gmail.com\",\r\n    \"currently_working\": \"yes\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/ENQUIRY/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "ENQUIRY",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Data",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/ENQUIRY/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "ENQUIRY",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get By Name",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/ENQUIRY/?name=l",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "ENQUIRY",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "l"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get by mobile url",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/ENQUIRY/get_by_mobile/?phone=9500",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "ENQUIRY",
+                "get_by_mobile",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "phone",
+                  "value": "9500"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
